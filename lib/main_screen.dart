@@ -10,9 +10,9 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  String _url = 'https://flutter.dev';
   late WebViewController _webViewController;
 
+  @override
   void initState() {
     super.initState();
     if (Platform.isAndroid) WebView.platform = AndroidWebView();
@@ -22,25 +22,25 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('나만의 웹 브라우저'),
+        title: const Text('나만의 웹 브라우저'),
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.add),
+            icon: const Icon(Icons.add),
           ),
           PopupMenuButton<String>(
             onSelected: (value) {
                 _webViewController.loadUrl(value);
             },
             itemBuilder: (context) => [
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'https://www.google.com',
                 child: Text('구글'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'https://www.naver.com',
                 child: Text('네이버'),
-              ), PopupMenuItem<String>(
+              ), const PopupMenuItem<String>(
                 value: 'https://www.kakao.com',
                 child: Text('카카오'),
               ),
